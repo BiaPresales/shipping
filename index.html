@@ -90,10 +90,10 @@
 
             <label for="text4Object" id="text4Label">Shipping Method:</label><br>
             <select id="text4Object" name="text4Object">
-                <option value="1 Paket">1 Paket</option>
-                <option value="2 Pakete">2 Pakete</option>
-                <option value="3 Pakete">3 Pakete</option>
-                <option value="1 Brief">1 Brief</option>
+                <option value="1 Box">1 Box</option>
+                <option value="2 Box">2 Box</option>
+                <option value="3 Box">3 Box</option>
+                <option value="4 Box">4 Box</option>
             </select><br><br>
 
             <label for="barcodeObject" id="barcodeLabel">Shipment Number:</label><br>
@@ -113,7 +113,7 @@
                 const text4 = document.getElementById("text4Object").value;
                 const barcode = document.getElementById("barcodeObject").value;
 
-                const url = `brotherwebprint://print?filename=linerless.lbx&size=rd102mm.bin&text_text1=${encodeURIComponent(text1)}&text_text2=${encodeURIComponent(text2)}&text_text3=${encodeURIComponent(text3)}&text_text4=${encodeURIComponent(text4)}&text_barcode2=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+                const url = `brotherwebprint://print?filename=shipping.lbx&size=rd102mm.bin&text_text1=${encodeURIComponent(text1)}&text_text2=${encodeURIComponent(text2)}&text_text3=${encodeURIComponent(text3)}&text_text4=${encodeURIComponent(text4)}&text_barcode2=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
