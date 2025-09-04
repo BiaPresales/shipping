@@ -67,8 +67,8 @@
         <h1>Brother Demo Solutions with Smooth Print for Australia Post</h1>
         <h2>Delivery Notification</h2>
         <form id="printForm">
-            <label for="text1Object" id="text1Label">Recipient:</label><br>
-            <select id="text1Object" name="text1Object" >
+            <label for="addressObject" id="addressLabel">Recipient:</label><br>
+            <select id="addressObject" name="addressObject" >
                 <option value="">Please select...</option>
 				<option value="Jet Cycles, 80 Clarence Street, Sydney, NSW, 2000">Jet Cycles, 80 Clarence Street, Sydney, NSW, 2000</option>
 				<option value="Endeavour Cycles, 107 Gymea Bay Road, Gymea, NSW, 2227">Endeavour Cycles, 107 Gymea Bay Road, Gymea, NSW, 2227</option>
@@ -78,8 +78,8 @@
 				<option value="Velofix, 736 Darling Steet, Rozelle, NSW, 2039">Velofix, 736 Darling Steet, Rozelle, NSW, 2039</option>
             </select><br><br>
 
-            <label for="text2Object" id="text2Label">Item Description:</label><br>
-            <select id="text2Object" name="text2Object">
+            <label for="itemObject" id="itemLabel">Item Description:</label><br>
+            <select id="itemObject" name="itemObject">
                 <option value="">Please select...</option>
 				<option value="Specialized Camber Comp Carbon 29"">Specialized Camber Comp Carbon 29"</option>
 				<option value="SRAM Bottom Bracket">SRAM Bottom Bracket</option>
@@ -89,8 +89,8 @@
 				<option value="Shimano SPD Pedals">Shimano SPD Pedals</option>
             </select><br><br>
 
-            <label for="text4Object" id="text4Label">Item Weight in Kg:</label><br>
-			<input type="text" id="text4Object" name="text4Object" required><br><br>
+            <label for="weightObject" id="weightLabel">Item Weight in Kg:</label><br>
+			<input type="text" id="weightObject" name="text3Object" required><br><br>
 			
             <button type="button" onclick="previewLink()">Link preview</button>
             <button type="button" onclick="sendToPrint()">Submit</button>
@@ -100,13 +100,12 @@
         
         <script>
             function generateUrl() {
-                const text1 = document.getElementById("text1Object").value;
-                const text2 = document.getElementById("text2Object").value;
-                const text3 = document.getElementById("text3Object").value;
-                const text4 = document.getElementById("text4Object").value;
-                const barcode = document.getElementById("text1Object").value;
+                const address = document.getElementById("addressObject").value;
+                const item = document.getElementById("itemObject").value;
+                const weight = document.getElementById("weightObject").value;
+                const barcode = document.getElementById("addressObject").value;
 
-                const url = `brotherwebprint://print?filename=https://biapresales.github.io/smoothprint/austpost.lbx&size=https://biapresales.github.io/smoothprint/rd102mm.bin&text_text1=${encodeURIComponent(text1)}&text_text2=${encodeURIComponent(text2)}&text_text3=${encodeURIComponent(text3)}&text_text4=${encodeURIComponent(text4)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_item=${encodeURIComponent(item)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
