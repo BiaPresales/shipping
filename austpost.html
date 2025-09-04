@@ -63,6 +63,7 @@
 <body>
 
     <img src="Bluebar.jpg" alt="Brother Logo" class="logo">
+	<img src="parcelpost.jpg" alt="Aust Post Logo" class="logo">
 	<a href="../main/index.html" target="_self"><img src="home.png" alt="Home Logo" class="homelogo"></a>
     <div class="container">
         <h1>Brother Demo Solutions with Smooth Print for Australia Post</h1>
@@ -106,7 +107,7 @@
                 const weight = document.getElementById("weightObject").value;
                 const barcode = document.getElementById("addressObject").value;
 
-                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+                const url = 'brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}';
                 return url;
             }
 
@@ -130,8 +131,5 @@
     </div>
 </body>
 </html>
-
-
-
 
 
