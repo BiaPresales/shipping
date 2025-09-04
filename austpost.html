@@ -106,7 +106,7 @@
                 const weight = document.getElementById("weightObject").value;
                 const barcode = document.getElementById("addressObject").value;
 
-                const url = 'brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}';
+                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
@@ -130,6 +130,7 @@
     </div>
 </body>
 </html>
+
 
 
 
