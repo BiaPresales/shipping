@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Smooth Print Australia Post</title>
     <style>
@@ -19,7 +19,7 @@
             height: 100vh;
             margin: 0;
         }
-
+		
         .container {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -89,7 +89,7 @@
             <label for="descriptionObject" id="descriptionLabel">Item Description:</label><br>
             <select id="descriptionObject" name="descriptionObject">
                 <option value="">Please select...</option>
-				<option value="Specialized Camber Comp Carbon 29"">Specialized Camber Comp Carbon 29"</option>
+				<option value="Specialized Camber Comp Carbon 29">Specialized Camber Comp Carbon 29"</option>
 				<option value="SRAM Bottom Bracket">SRAM Bottom Bracket</option>
 				<option value="Shimano XTR 4 pot Caliper">Shimano XTR 4 pot Caliper</option>
 				<option value="Rock Shox Rebus 120mm">Rock Shox Rebus 120mm</option>
@@ -108,12 +108,12 @@
         
         <script>
             function generateUrl() {
-                const address = document.getElementById("addressObject").value;
+                const address1 = document.getElementById("addressObject").value;
                 const description = document.getElementById("descriptionObject").value;
                 const weight = document.getElementById("weightObject").value;
                 const barcode = document.getElementById("addressObject").value;
 
-                const url = 'brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}';
+                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address1)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
