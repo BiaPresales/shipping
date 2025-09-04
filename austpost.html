@@ -78,8 +78,8 @@
 				<option value="Velofix, 736 Darling Steet, Rozelle, NSW, 2039">Velofix, 736 Darling Steet, Rozelle, NSW, 2039</option>
             </select><br><br>
 
-            <label for="itemObject" id="itemLabel">Item Description:</label><br>
-            <select id="itemObject" name="itemObject">
+            <label for="descriptionObject" id="descriptionLabel">Item Description:</label><br>
+            <select id="descriptionObject" name="descriptionObject">
                 <option value="">Please select...</option>
 				<option value="Specialized Camber Comp Carbon 29"">Specialized Camber Comp Carbon 29"</option>
 				<option value="SRAM Bottom Bracket">SRAM Bottom Bracket</option>
@@ -90,7 +90,7 @@
             </select><br><br>
 
             <label for="weightObject" id="weightLabel">Item Weight in Kg:</label><br>
-			<input type="text" id="weightObject" name="text3Object" required><br><br>
+			<input type="text" id="weightObject" name="weightObject" required><br><br>
 			
             <button type="button" onclick="previewLink()">Link preview</button>
             <button type="button" onclick="sendToPrint()">Submit</button>
@@ -101,11 +101,11 @@
         <script>
             function generateUrl() {
                 const address = document.getElementById("addressObject").value;
-                const item = document.getElementById("itemObject").value;
+                const description = document.getElementById("descriptionObject").value;
                 const weight = document.getElementById("weightObject").value;
                 const barcode = document.getElementById("addressObject").value;
 
-                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_item=${encodeURIComponent(item)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(item)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
