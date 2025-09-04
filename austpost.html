@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Smooth Print Australia Post</title>
     <style>
         body {
@@ -105,7 +106,7 @@
                 const weight = document.getElementById("weightObject").value;
                 const barcode = document.getElementById("addressObject").value;
 
-                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(item)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
                 return url;
             }
 
