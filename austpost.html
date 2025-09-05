@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=1.0, user-scalable=no">
 
     <title>Smooth Print Australia Post</title>
     <style>
@@ -73,7 +73,6 @@
 	<a href="../main/index.html" target="_self"><img src="home.png" alt="Home Logo" class="homelogo"></a>
     <div class="container">
         <h1>Brother Demo Solutions with Smooth Print for Australia Post</h1>
-        <h2>Delivery Notification</h2>
         <form id="printForm">
             <label for="addressObject" id="addressLabel">Recipient:</label><br>
             <select id="addressObject" name="addressObject" >
@@ -89,7 +88,7 @@
             <label for="descriptionObject" id="descriptionLabel">Item Description:</label><br>
             <select id="descriptionObject" name="descriptionObject">
                 <option value="">Please select...</option>
-				<option value="Specialized Camber Comp Carbon 29">Specialized Camber Comp Carbon 29</option>
+				<option value="Specialized Camber Comp Carbon 29">Specialized Camber Comp Carbon 29"</option>
 				<option value="SRAM Bottom Bracket">SRAM Bottom Bracket</option>
 				<option value="Shimano XTR 4 pot Caliper">Shimano XTR 4 pot Caliper</option>
 				<option value="Rock Shox Rebus 120mm">Rock Shox Rebus 120mm</option>
@@ -98,7 +97,7 @@
             </select><br><br>
 
             <label for="weightObject" id="weightLabel">Item Weight in Kg:</label><br>
-			<input type="text" id="weightObject" name="weightObject" required><br><br>
+			<input type="text" id="weightObject" name="weightObject" inputmode="numeric" pattern="[0-9]*" required><br><br>
 			
             <button type="button" onclick="previewLink()">Link preview</button>
             <button type="button" onclick="sendToPrint()">Submit</button>
@@ -106,17 +105,23 @@
 
         <div id="previewLink"></div> <!-- Container for displaying the preview link -->
         
-        <script>
-            function generateUrl() {
-                const address1 = document.getElementById("addressObject").value;
-                const description = document.getElementById("descriptionObject").value;
-                const weight = document.getElementById("weightObject").value;
-                const barcode = document.getElementById("addressObject").value;
-
-                const url = `brotherwebprint://print?filename=https://biapresales.github.io/shipping/austpost.lbx&size=https://biapresales.github.io/shipping/rd102mm.bin&text_address=${encodeURIComponent(address1)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
-                return url;
-            }
-
+		<script>
+			function generateUrl() {
+				const addressdata = document.getElementById("addressObject").value;
+				const company1 = addressdata.split(',')[0];
+				const address1 = addressdata.split(', ')[1].split(', ')[0];
+				const address2 = addressdata.split(', ').slice(2).join(', ').trim();
+				const description = document.getElementById("descriptionObject").value;
+				const weight = document.getElementById("weightObject").value;
+				const barcode = document.getElementById("addressObject").value;
+				const filelbx = "https://biapresales.github.io/smoothprint/shipping/austpost.lbx";
+				const filebin = "https://biapresales.github.io/smoothprint/shipping/rd102mm.bin";
+				//const filelbx = "https://resources.brother.com.au/assets/demos/smoothprint/shipping/austpost.lbx";
+				//const filebin = "https://resources.brother.com.au/assets/demos/smoothprint/shipping/rd102mm.bin";
+				const url = `brotherwebprint://print?filename=${encodeURIComponent(filelbx)}&formatarchiveupdate=1&size=${encodeURIComponent(filebin)}&text_company=${encodeURIComponent(company1)}&text_address1=${encodeURIComponent(address1)}&text_address2=${encodeURIComponent(address2)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
+				return url;
+			}
+			
             function previewLink() {
                 const url = generateUrl();
                 const previewDiv = document.getElementById("previewLink");
@@ -137,6 +142,5 @@
     </div>
 </body>
 </html>
-
 
 
