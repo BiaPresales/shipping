@@ -114,8 +114,8 @@
 				const description = document.getElementById("descriptionObject").value;
 				const weight = document.getElementById("weightObject").value;
 				const barcode = document.getElementById("addressObject").value;
-				const filelbx = "https://biapresales.github.io/smoothprint/shipping/austpost.lbx";
-				const filebin = "https://biapresales.github.io/smoothprint/shipping/rd102mm.bin";
+				const filelbx = "https://biapresales.github.io/shipping/austpost.lbx";
+				const filebin = "https://biapresales.github.io/shipping/rd102mm.bin";
 				//const filelbx = "https://resources.brother.com.au/assets/demos/smoothprint/shipping/austpost.lbx";
 				//const filebin = "https://resources.brother.com.au/assets/demos/smoothprint/shipping/rd102mm.bin";
 				const url = `brotherwebprint://print?filename=${encodeURIComponent(filelbx)}&formatarchiveupdate=1&size=${encodeURIComponent(filebin)}&text_company=${encodeURIComponent(company1)}&text_address1=${encodeURIComponent(address1)}&text_address2=${encodeURIComponent(address2)}&text_description=${encodeURIComponent(description)}&text_weight=${encodeURIComponent(weight)}&text_barcode1=${encodeURIComponent(barcode)}&barcode_barcode2=${encodeURIComponent(barcode)}`;
